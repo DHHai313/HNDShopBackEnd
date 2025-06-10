@@ -7,11 +7,11 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Entity
-@DiscriminatorValue("Camera")
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
+@PrimaryKeyJoinColumn(name = "id")
 public class Camera extends Product {
     @Column(name = "resolution", nullable = false)
     private String resolution;
