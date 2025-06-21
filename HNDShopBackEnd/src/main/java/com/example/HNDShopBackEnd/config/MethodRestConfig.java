@@ -27,8 +27,13 @@ public class MethodRestConfig implements RepositoryRestConfigurer {
         config.exposeIdsFor(Product.class, Image.class, Category.class); // 👈 Thêm dòng này
 
         // Vô hiệu hóa các phương thức HTTP
+//        config.getExposureConfiguration()
+//                .forDomainType(Object.class)
+//                .withCollectionExposure((metadata, httpMethods) -> httpMethods.disable(chanMethods))
+//                .withItemExposure((metadata, httpMethods) -> httpMethods.disable(chanMethods));
+        // Chỉ chặn HTTP methods cho Category (nếu bạn không muốn client tạo Category mới)
         config.getExposureConfiguration()
-                .forDomainType(Object.class)
+                .forDomainType(Category.class)
                 .withCollectionExposure((metadata, httpMethods) -> httpMethods.disable(chanMethods))
                 .withItemExposure((metadata, httpMethods) -> httpMethods.disable(chanMethods));
 
