@@ -32,7 +32,7 @@ public class User {
     @Column(nullable = false)
     private String password;
 
-    private String gender;
+    private Integer gender;
 
     @Email
     @Column(nullable = false, unique = true)
