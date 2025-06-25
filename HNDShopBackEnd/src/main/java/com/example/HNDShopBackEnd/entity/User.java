@@ -45,13 +45,40 @@ public class User {
     @Column(name = "shipping_address")
     private String shippingAddress;
 
-    @ManyToMany(fetch = FetchType.EAGER)
+    @ManyToMany(fetch = FetchType.EAGER, cascade =
+            {CascadeType.PERSIST, CascadeType.MERGE,
+            CascadeType.REFRESH, CascadeType.DETACH})
     @JoinTable(
             name = "user_roles",
             joinColumns = @JoinColumn(name = "user_id"),
             inverseJoinColumns = @JoinColumn(name = "role_id")
     )
     private List<Role> roles;
+    @Column(name = "enabled")
+    private boolean enabled;
+    @Column(name = "enabledCode")
+    private String enabledCode;
+    public List<Role> getRoles() {
+        return roles;
+    }
 
-    // Getters, setters, constructors
+    public void setRoles(List<Role> roles) {
+        this.roles = roles;
+    }
+
+    public String getEnabledCode() {
+        return enabledCode;
+    }
+
+    public void setEnabledCode(String enabledCode) {
+        this.enabledCode = enabledCode;
+    }
+
+    public boolean isEnabled() {
+        return enabled;
+    }
+
+    public void setEnabled(boolean enabled) {
+        this.enabled = enabled;
+    }
 }
