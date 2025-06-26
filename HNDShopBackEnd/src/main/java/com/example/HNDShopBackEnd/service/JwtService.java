@@ -16,7 +16,7 @@ import java.util.function.Function;
 
 @Component
 public class JwtService {
-    public static final String JWT_SECRET = "";
+    public static final String JWT_SECRET = "tqdgembcxrkiTefzJMy5yN69o5DSpAzclmvhdBS9NZ9fmazpiTefzJMy5yN69o5DSpAzclmvhdBS9NZ9";
 
     //Tạo JWT trên username
 //    public String generateToken(String username) {
