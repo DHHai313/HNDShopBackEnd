@@ -18,11 +18,7 @@ import java.util.function.Function;
 public class JwtService {
     public static final String JWT_SECRET = "";
 
-    //Tạo JWT trên username
-//    public String generateToken(String username) {
-//        Map<String, Object> claims = new HashMap<>();
-//        return createToken(claims,username);
-//    }
+
     public String generateToken(UserDetails userDetails) {
         Map<String, Object> claims = new HashMap<>();
         claims.put("authorities", userDetails.getAuthorities().stream()
